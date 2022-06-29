@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven3'         
-    }
+    
     stages {
       stage('SCM Chekout'){
           steps {
@@ -12,8 +10,9 @@ pipeline {
       }
       stage('Build Package'){
           steps {
+              def mvnHome= tool name: 'maven3', type: 'maven'
               echo 'Build the packages using Maven'
-              echo "mvn clean install"
+              bat "${mvnHome}/bin/mvn clean install"
           }     
       }
    }
