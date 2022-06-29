@@ -13,7 +13,7 @@ pipeline {
       stage('Build Package'){
           steps {
               echo 'Build the packages using Maven'
-              echo "mvn clean package"
+              echo "mvn clean install"
           }     
       }
    }
